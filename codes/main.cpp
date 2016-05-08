@@ -73,15 +73,15 @@ int main()
 					{
 						customer *temp = DataBase.get_Front();
 						appendToFile(temp);
-						DataBase.add_End(temp);
 						DataBase.pop_Front();
+						DataBase.add_End(temp);
 					}
 					break;
 		}
 		case '4':
 		{
 					int tempcategory = 0;
-					cout << "Please choose the Age Category\n1- 16->25\n2- 26->40\n3- 41->60\n-4 Above"
+					cout << "Please choose the Age Category\n1- 16->25\n2- 26->40\n3- 41->60\n4- Above"
                          << endl << "**********\nYour Answer: ";
 					cin >> tempcategory;
 					cout << "**********\n";
@@ -93,7 +93,7 @@ int main()
 		case '5':
 		{
 					int tempproduct = 0;
-					cout << "Please choose the product\n1- TV\n2- PlayStation\n3- Mobile Phones\-4 Tablets\n5- Laptops"
+					cout << "Please choose the product\n1- TV\n2- PlayStation\n3- Mobile Phones\n4- Tablets\n5- Laptops"
                          << endl << "**********\nYour Answer: ";
 					cin >> tempproduct;
 					cout << "**********\n";
