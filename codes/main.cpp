@@ -37,20 +37,23 @@ int main()
 	//admin choice
 	char choice = -1;
 	do {
-		cout << "what do u want ?"
-			<< endl << "1:to add many random customers"
-			<< endl << "2:to read the data from DataSet.txt file"
-			<< endl << "3:save the current customers' data to DataSet.txt file"
+		cout << "\n\t\tMain Menu "
+			<< endl << "1:Add many random customers"
+			<< endl << "2:Read the data from DataSet.txt file"
+			<< endl << "3:Save the current customers' data to DataSet.txt file"
 			<< endl << "4:Get statistics for certain age category"
-			<< endl << "5:Get statistics for certain product" << endl;
+			<< endl << "5:Get statistics for certain product"
+			<< endl << "**********\nYour Answer: ";
 		cin >> choice;
+		cout << "**********"<<endl;
 		cin.ignore();
 		switch (choice) {
 		case '1':
 		{
 					int many;
-					cout << "how many?" << endl;
+					cout << "Please enter how many random users you want to create\n**********\nYour Answer: ";
 					cin >> many;
+					cout << "**********\n";
 					for (int i = 0; i<many; i++)
 					{
 						customer* c = new customer();
@@ -78,8 +81,10 @@ int main()
 		case '4':
 		{
 					int tempcategory = 0;
-					cout << "Which AgeCategory ? (1,2,3,4)\t:";
+					cout << "Please choose the Age Category\n1- 16->25\n2- 26->40\n3- 41->60\n-4 Above"
+                         << endl << "**********\nYour Answer: ";
 					cin >> tempcategory;
+					cout << "**********\n";
 					Age_Pie(DataBase, tempcategory);
 					/*TODO, open the file*/
 					system("explorer report.html");
@@ -88,8 +93,10 @@ int main()
 		case '5':
 		{
 					int tempproduct = 0;
-					cout << "Please enter the product number (1,2,3,4,5) \t:";
+					cout << "Please choose the product\n1- TV\n2- PlayStation\n3- Mobile Phones\-4 Tablets\n5- Laptops"
+                         << endl << "**********\nYour Answer: ";
 					cin >> tempproduct;
+					cout << "**********\n";
 					Product_Pie(DataBase, tempproduct);
 					/*TODO open the file*/
 					system("explorer report.html");
@@ -160,8 +167,9 @@ bool Age_Pie(List& Data, int AgeCategory)
 		temp = temp->get_next();
 	}
 
-	string Products[] = { "Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Did not choose" };
+	string Products[] = { "TV", "PlayStation", "Mobile Phones", "Tablets", "Laptops", "Did not choose" };
 	generate_pie(6, Products, Product_Percentage, "The Age Category " + to_string(AgeCategory) + " Chose these products");
+	cout << "Reached last line in Age_pie function" << endl;
 	return true;
 }
 
